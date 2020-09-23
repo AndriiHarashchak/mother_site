@@ -1,0 +1,29 @@
+ru:
+  layouts:
+    application:
+      new: 'Нова стаття'
+      login: 'Ввійти'
+      header: 'Мамин сайт'
+      forms: 'Класи'
+      documentation: 'Документація'
+      links: 'Цікаві посилання'
+      about: 'Про мене'
+  common:   
+    errors: 'Помилки при створенні нової статті'
+    back: 'Назад'
+    save: 'Зберегти'
+    create: 'Створити'
+    edit: 'Редагувати'
+  posts:
+    index:
+      title: 'Статті'
+    new:
+      title: 'Нова стаття'
+    edit:
+      title: 'Редагування статті'
+    form:
+      submit:
+        '%{action} статтю'
+    post:
+      edit: 'Редагувати статтю'
+      delete: 'Видалити статтю'

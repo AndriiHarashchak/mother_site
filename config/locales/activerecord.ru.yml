@@ -1,0 +1,12 @@
+ru:
+  activerecord:
+    models:
+      post: 'Стаття'
+    attributes:
+      post:
+        title: 'Заголовок поста'
+        subtitle: 'Короткий опис'
+        body: 'Вміст статті'
+    errors:
+      messages:
+        blank: 'не може бути відсутнім'

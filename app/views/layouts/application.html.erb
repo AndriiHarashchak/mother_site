@@ -10,32 +10,51 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand" href="#">Mother site</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+      <%=  link_to t('.header'), posts_path, class: "navbar-brand" %> 
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarColor03">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <%= link_to 'Home', posts_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "New post", new_post_path, class: "nav-link"%>
-        </li>
-        <%# <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li> %>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-      </ul>
-      
-      <button class="btn btn-outline-primary my-2 my-sm-0">Login</button>
-      <%# <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button> %>
+      <div class="collapse navbar-collapse" id="navbarColor03">
+       <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to t('.forms'), posts_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t('.documentation'), posts_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t('.links'), posts_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t('.about'), "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item<%= " active" if I18n.locale == :ru %>">
+            <%= link_to 'Укр', {locale: :ru}, class: "nav-link" %>
+          </li>
+          <li class="nav-item<%= " active" if I18n.locale == :en %>">
+            <%= link_to 'En', {locale: :en}, class: "nav-link" %>
+          </li>
+        </ul>
+        <%= link_to t('.new'), new_post_path, class: "btn btn-outline-secondary my-2 my-sm-0 mr-2" %>
+        <button class="btn btn-outline-primary my-2 my-sm-0"> <%= t('.login') %> </button>
+      </div>
+    </nav>
+  </div>
+  <div class="container main">
+  <div class="row">
+    <div class="col-md-12">
+    <% flash.each do |name, message|%>
+     <div class="alert alert-<%= name %>">
+      <%= message %>
+     </div>
+     <%end%>
     </div>
-  </nav>
+  </div>
     <%= yield %>
+  </div>
+    
   </body>
 </html>
